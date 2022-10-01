@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int score;
+    private int score = 0;
     private float incrementRate;
 
     private GameManager gameManager;

@@ -9,10 +9,12 @@ public class PlayerInputManager : MonoBehaviour
     /// </summary>
     private GameManager gameManager;
 
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
-        var manager = GameObject.FindObjectOfType<GameManager>();
-        this.gameManager = manager;
+        this.gameManager = GameObject.FindObjectOfType<GameManager>();
+        this.playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
     }
 
 
@@ -40,13 +42,15 @@ public class PlayerInputManager : MonoBehaviour
 
     private void GameInputScheme()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("A");
+            //Debug.Log("A");
+            this.playerMovement.MoveLeft();
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("D");
+            //Debug.Log("D");
+            this.playerMovement.MoveRight();
         }
     } 
     #endregion
