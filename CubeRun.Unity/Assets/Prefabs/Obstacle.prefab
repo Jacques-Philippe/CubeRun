@@ -122,9 +122,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568060443594880188}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e619c6b97415b4c98f5950ce5738dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForwardForceMagnitude: 2000
+  ForwardForceMagnitude: 1750
