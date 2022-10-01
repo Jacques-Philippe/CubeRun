@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     private GameManager gameManager;
@@ -9,7 +10,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// The source from which the sound comes
     /// </summary>
-    public AudioSource source;
+    private AudioSource source;
 
     /// <summary>
     /// Music to be played when the game is in progress
@@ -23,6 +24,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.source = this.GetComponent<AudioSource>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
         StartCoroutine("PlayMusic");
     }

@@ -36,6 +36,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Space");
             this.gameManager.Reset();
         }
     }
@@ -44,12 +45,12 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            //Debug.Log("A");
+            Debug.Log("A");
             this.playerMovement.MoveLeft();
         }
         if (Input.GetKey(KeyCode.D))
         {
-            //Debug.Log("D");
+            Debug.Log("D");
             this.playerMovement.MoveRight();
         }
     } 

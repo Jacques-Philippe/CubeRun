@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        Debug.Log("Game over");
         this.isGameOver = true;
     }
 
