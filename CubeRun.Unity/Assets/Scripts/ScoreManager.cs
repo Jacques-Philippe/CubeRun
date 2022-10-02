@@ -13,7 +13,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.incrementRate = (int)Time.deltaTime * 1000.0f;
+        this.incrementRate = (int)(Time.deltaTime * 100.0f);
+        Debug.Log($"Increment rate {incrementRate}");
 
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
         this.uiManager = GameObject.FindObjectOfType<UIManager>();
@@ -26,6 +27,7 @@ public class ScoreManager : MonoBehaviour
         {
             this.score += (int)incrementRate;
             this.uiManager.Score = $"{this.score}";
+            Debug.Log($"Set UI manager score to {this.score}");
 
             return this.gameManager.IsGameOver;
         });
