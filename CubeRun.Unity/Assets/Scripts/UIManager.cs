@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     private void DisplayGameUI()
     {
-        Debug.Log($"Displaying game UI with score {Score}");
+        //Debug.Log($"Displaying game UI with score {Score}");
         this.scoreReceiver.Score = this.Score;
     }
 
@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void DisplayGameOverUI()
     {
-        Debug.Log($"Displaying game over UI with score {Score}");
+        //Debug.Log($"Displaying game over UI with score {Score}");
         var receiver = this.gameOverUI.transform.GetComponentInChildren<ScoreReceiver>();
         receiver.Score = this.Score;
         this.gameOverUI.SetActive(true);

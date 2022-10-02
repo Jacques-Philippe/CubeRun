@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         this.incrementRate = (int)(Time.deltaTime * 100.0f);
-        Debug.Log($"Increment rate {incrementRate}");
+        //Debug.Log($"Increment rate {incrementRate}");
 
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
         this.uiManager = GameObject.FindObjectOfType<UIManager>();
@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         {
             this.score += (int)incrementRate;
             this.uiManager.Score = $"{this.score}";
-            Debug.Log($"Set UI manager score to {this.score}");
+            //Debug.Log($"Set UI manager score to {this.score}");
 
             return this.gameManager.IsGameOver;
         });
