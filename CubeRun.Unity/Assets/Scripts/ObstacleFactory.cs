@@ -12,28 +12,27 @@ public class ObstacleFactory : MonoBehaviour
     [Tooltip("The amount of time obstacles should be kept alive for")]
     public float ObstacleLife;
 
-    private List<GameObject> obstaclesToDestroy = new List<GameObject>();
-
-    private bool mShouldSpawnObstacles = true;
-
     private GameManager gameManager;
 
 
     private void Start()
     {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
-        StartCoroutine("ManageObstacleSpawning");
+        
+        StartCoroutine(ManageObstacleSpawning());
     }
 
     private IEnumerator ManageObstacleSpawning()
     {
         if (!gameManager.IsGameOver)
         {
-            Debug.Log("Spawning obstacles");
             float randomDelay = Random.Range(3, 4);
             yield return new WaitForSeconds(randomDelay);
-            this.SpawnObstacles();
-            yield return ManageObstacleSpawning();
+            if (!gameManager.IsGameOver)
+            {
+                this.SpawnObstacles();
+                yield return ManageObstacleSpawning();
+            }
         }
         else
         {

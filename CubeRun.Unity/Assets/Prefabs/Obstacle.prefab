@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e619c6b97415b4c98f5950ce5738dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForwardForceMagnitude: 1750
+  ForwardForceMagnitude: 1500
