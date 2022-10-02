@@ -14,7 +14,6 @@ public class ObstacleFactory : MonoBehaviour
 
     private GameManager gameManager;
 
-
     private void Start()
     {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -38,12 +37,6 @@ public class ObstacleFactory : MonoBehaviour
         {
             yield return null;
         }
-    }
-
-
-    public void StopSpawningObstacles()
-    {
-        this.mShouldSpawnObstacles = false;
     }
 
     private void SpawnObstacles()
