@@ -56,3 +56,7 @@ When the game is reset, the game scene is reloaded.
 # References
 
 - [Project figma](https://www.figma.com/file/8z2LLfC6iTGcVCYMHcpMeH/CubeRun.Unity?node-id=0%3A1)
+
+# Hosted project
+
+[Here](https://play.unity.com/p/webgl-builds-254419)
