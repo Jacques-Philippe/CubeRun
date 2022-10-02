@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class ObstacleFactory : MonoBehaviour
 {
-
+    /// <summary>
+    /// The list of all prefabs to use as obstacle paths
+    /// </summary>
     public List<GameObject> obstacleTunnelPrefabs;
+
+    [Tooltip("The amount of time obstacles should be kept alive for")]
+    public float ObstacleLife;
+
+    private List<GameObject> obstaclesToDestroy = new List<GameObject>();
 
     private bool mShouldSpawnObstacles = true;
 
     private GameManager gameManager;
-
-    public Transform SpawnPosition;
 
 
     private void Start()
@@ -25,7 +30,7 @@ public class ObstacleFactory : MonoBehaviour
         if (!gameManager.IsGameOver)
         {
             Debug.Log("Spawning obstacles");
-            float randomDelay = Random.Range(1, 5);
+            float randomDelay = Random.Range(3, 4);
             yield return new WaitForSeconds(randomDelay);
             this.SpawnObstacles();
             yield return ManageObstacleSpawning();
@@ -46,7 +51,15 @@ public class ObstacleFactory : MonoBehaviour
     {
         int randomIndex = Random.Range(0, this.obstacleTunnelPrefabs.Count - 1);
         var prefab = this.obstacleTunnelPrefabs[randomIndex];
-        GameObject.Instantiate(original: prefab, position: SpawnPosition.transform.position, rotation: new Quaternion());
+        var obj = GameObject.Instantiate(original: prefab);
+        var destroyCoroutine = DestroyAfterSeconds(obj, this.ObstacleLife);
+        StartCoroutine(destroyCoroutine);
+    }
+
+    private IEnumerator DestroyAfterSeconds(GameObject obj, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameObject.Destroy(obj);
     }
 
 }

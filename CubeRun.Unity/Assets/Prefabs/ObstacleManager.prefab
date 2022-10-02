@@ -64,4 +64,4 @@ MonoBehaviour:
   - {fileID: 3110342316545020318, guid: b6ff8008f14e47b459b2d0840aee28f3, type: 3}
   - {fileID: 2755574938118652430, guid: 8d822a09a012d884588d8ad77fb788a4, type: 3}
   - {fileID: 5232328047994311262, guid: db8f78da8506830419c47b87da70b860, type: 3}
-  SpawnPosition: {fileID: 0}
+  ObstacleLife: 6
