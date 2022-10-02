@@ -11,19 +11,32 @@ public class UIManager : MonoBehaviour
     public string Score;
 
     [SerializeField]
-    private GameObject GameUI;
+    private GameObject GameUIPrefab;
 
     [SerializeField]
-    private GameObject GameOverUI;
+    private GameObject GameOverUIPrefab;
+
+    private GameObject gameUI;
+    private GameObject gameOverUI;
 
     private GameManager gameManager;
     private ScoreReceiver scoreReceiver;
+
+    private void Awake()
+    {
+
+        this.gameUI = GameObject.Instantiate(GameUIPrefab);
+
+        this.gameOverUI = GameObject.Instantiate(GameOverUIPrefab);
+        this.gameOverUI.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
-        this.scoreReceiver = GameObject.FindObjectOfType<ScoreReceiver>();
+
+        this.scoreReceiver = this.gameUI.transform.GetComponentInChildren<ScoreReceiver>();
 
         StartCoroutine("DisplayUI");
     }
@@ -46,12 +59,16 @@ public class UIManager : MonoBehaviour
 
     private void RemoveGameUI()
     {
-
+        this.gameUI.SetActive(false);
+        
     }
 
     private void DisplayGameOverUI()
     {
         Debug.Log($"Displaying game over UI with score {Score}");
+        var receiver = this.gameOverUI.transform.GetComponentInChildren<ScoreReceiver>();
+        receiver.Score = this.Score;
+        this.gameOverUI.SetActive(true);
     }
 
 }

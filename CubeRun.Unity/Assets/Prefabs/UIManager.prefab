@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 
+  GameUIPrefab: {fileID: 2252022995848048340, guid: 6210087dc0e27724daf24ab8ea2af1ac, type: 3}
+  GameOverUIPrefab: {fileID: 8689145956322181916, guid: 75e44ce5e905bdc41a371cee04622a5d, type: 3}
