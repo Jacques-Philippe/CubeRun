@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     private int score = 0;
-    private float incrementRate;
+    private float incrementRate = 1.0f;
 
     private GameManager gameManager;
     private UIManager uiManager;
@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.incrementRate = (int)(Time.deltaTime * 100.0f);
         //Debug.Log($"Increment rate {incrementRate}");
 
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
